@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0064aa4c-bd18-4850-861f-48a8f8e7ab7c" name="Changes" comment="2D Street Fighter Game&#10;&#10;Completed &#10;1-Game Frame&#10;2-Board&#10;3-Player&#10;4-Forward and Backward Movement">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Street Fighter.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/skillrisers/gaming/canvas/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/skillrisers/gaming/canvas/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/skillrisers/gaming/canvas/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/skillrisers/gaming/canvas/GameFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/skillrisers/gaming/sprites/MasterPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/skillrisers/gaming/sprites/MasterPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/skillrisers/gaming/sprites/Player1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/skillrisers/gaming/sprites/Ryu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/skillrisers/gaming/sprites/Player2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/skillrisers/gaming/sprites/Ken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/skillrisers/gaming/utils/GameConstraints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/skillrisers/gaming/utils/GameConstraints.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Nwt6AZdXSDzPlqZ0evstfuYOC4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.GameFrame">
+    <configuration name="GameFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.skillrisers.gaming.canvas.GameFrame" />
+      <module name="Street Fighter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.skillrisers.gaming.canvas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Street Fighter" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GameFrame" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0064aa4c-bd18-4850-861f-48a8f8e7ab7c" name="Changes" comment="" />
+      <created>1680586797030</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680586797030</updated>
+    </task>
+    <task id="LOCAL-00001" summary="2D Street Fighter Game&#10;&#10;Completed &#10;1-Game Frame&#10;2-Board&#10;3-Player&#10;4-Forward and Backward Movement">
+      <created>1680589344933</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680589344933</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="2D Street Fighter Game&#10;&#10;Completed &#10;1-Game Frame&#10;2-Board&#10;3-Player&#10;4-Forward and Backward Movement" />
+    <option name="LAST_COMMIT_MESSAGE" value="2D Street Fighter Game&#10;&#10;Completed &#10;1-Game Frame&#10;2-Board&#10;3-Player&#10;4-Forward and Backward Movement" />
+  </component>
+</project>

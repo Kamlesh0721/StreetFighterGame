@@ -9,16 +9,16 @@ public abstract class MasterPlayer {
     protected int w;
     protected int h;
     public int speed;
-    protected BufferedImage playerMovementImg;
-
-    protected abstract BufferedImage playerImg(); // abstract so it is necessary to make
+    protected BufferedImage playerImgSheet;
+    protected abstract BufferedImage actionManager();
 
     public void move() {
         x = x + speed;
     }
 
     public void drawPlayer(Graphics pen) {
-        pen.drawImage(playerImg(), x, y, w, h, null);
+        pen.drawImage(actionManager(), x, y, w, h, null);
 
     }
+
 }

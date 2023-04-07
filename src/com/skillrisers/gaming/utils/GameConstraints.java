@@ -11,13 +11,22 @@ public interface GameConstraints {
     int FLOOR = GHEIGHT - 125;
 
 
-    String PLAYER1_IMG = "Ryu.gif";
-    String PLAYER2_IMG = "Ken.png";
+    String Ryu_IMG = "Ryu.gif";
+    String Ken_IMG = "Ken.png";
     int SPEED = 10;
 
+
+    // Player Movement Keys
     int RIGHT_KEY = KeyEvent.VK_RIGHT; // 39
     int LEFT_KEY = KeyEvent.VK_LEFT;  // 37
 
     int A_KEY = KeyEvent.VK_A;
     int D_KEY = KeyEvent.VK_D;
+
+    // Player Moves
+    int DEFAULT = 0;
+    int PUNCH = 1;
+    int KICK = 2;
+    int JUMP = 3;
+    int HADOKEN = 4;
 }

@@ -21,7 +21,7 @@ public class GameFrame extends JFrame implements GameConstraints {
         Board board = new Board();
         add(board);
 
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
 
     }

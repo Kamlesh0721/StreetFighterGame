@@ -2,30 +2,47 @@ package com.skillrisers.gaming.canvas;
 // Board will contain all designing of game
 // We will use class JPanel for designing - JPanel can do painting
 
-import com.skillrisers.gaming.sprites.Player1;
-import com.skillrisers.gaming.sprites.Player2;
+import com.skillrisers.gaming.sprites.Ryu;
+import com.skillrisers.gaming.sprites.Ken;
 import com.skillrisers.gaming.utils.GameConstraints;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
 public class Board extends JPanel implements GameConstraints {
     BufferedImage bgImg;
-    private Player1 player1;
-    private Player2 player2;
+    private Ryu ryu;
+    private Ken ken;
+
+    private Timer timer;
+
+    private void gameLoop() {
+        timer = new Timer(150, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                repaint();
+            }
+        });
+
+        timer.start();
+    }
 
     public Board() throws Exception {
         loadBackground();
-        player1 = new Player1();
-        player2 = new Player2();
+        ryu = new Ryu();
+        ken = new Ken();
 
         // focus on board ->when we click is register
         setFocusable(true);
         bindEvents();
+
+        gameLoop();
 
     }
 
@@ -46,14 +63,14 @@ public class Board extends JPanel implements GameConstraints {
 
                 // Player 1
                 if (e.getKeyCode() == D_KEY) {
-                    player1.speed = SPEED;
-                    player1.move();
+                    ryu.speed = SPEED;
+                    ryu.move();
                     repaint();  // Calls paintComponent internally
                 }
 
                 if (e.getKeyCode() == A_KEY) {
-                    player1.speed = -SPEED;
-                    player1.move();
+                    ryu.speed = -SPEED;
+                    ryu.move();
                     repaint();
                 }
 
@@ -61,14 +78,31 @@ public class Board extends JPanel implements GameConstraints {
                 // Player 2
 
                 if (e.getKeyCode() == RIGHT_KEY) {
-                    player2.speed = SPEED;
-                    player2.move();
+                    ken.speed = SPEED;
+                    ken.move();
                     repaint();
                 }
 
                 if (e.getKeyCode() == LEFT_KEY) {
-                    player2.speed = -SPEED;
-                    player2.move();
+                    ken.speed = -SPEED;
+                    ken.move();
+                    repaint();
+                }
+
+                if(e.getKeyCode()==KeyEvent.VK_F){
+                    ryu.setCurrAction(GameConstraints.PUNCH);
+                    repaint();
+                }
+                if(e.getKeyCode()==KeyEvent.VK_S){
+                    ryu.setCurrAction(GameConstraints.KICK);
+                    repaint();
+                }
+                if(e.getKeyCode()==KeyEvent.VK_W){
+                    ryu.setCurrAction(GameConstraints.JUMP);
+                    repaint();
+                }
+                if(e.getKeyCode()==KeyEvent.VK_X){
+                    ryu.setCurrAction(GameConstraints.HADOKEN);
                     repaint();
                 }
 
@@ -84,8 +118,9 @@ public class Board extends JPanel implements GameConstraints {
         // It runs automatically after constructor we do not need to call i
         // It is used for rendering and painting
         paintBackground(pen);
-        player1.drawPlayer(pen);
-        player2.drawPlayer(pen);
+        ryu.drawPlayer(pen);
+        ken.drawPlayer(pen);
+
     }
 
     private void paintBackground(Graphics pen) {
