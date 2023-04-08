@@ -1,15 +1,20 @@
 package com.skillrisers.gaming.sprites;
 
+import com.skillrisers.gaming.utils.GameConstraints;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public abstract class MasterPlayer {
+public abstract class MasterPlayer implements GameConstraints {
     protected int x;  // Protected because we want them to be used by their child but not by every one
     protected int y;
     protected int w;
     protected int h;
     public int speed;
+    protected int currAction = DEFAULT;
+    protected int moveIndex = 0;
     protected BufferedImage playerImgSheet;
+
     protected abstract BufferedImage actionManager();
 
     public void move() {

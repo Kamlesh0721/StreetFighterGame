@@ -8,6 +8,9 @@ public interface GameConstraints {
     String GAME_BG = "bg.jpg";
     int GWIDTH = 1280;
     int GHEIGHT = 720;
+
+    int PLAYER_HEIGHT = 120;
+    int PLAYER_WIDTH = 100;
     int FLOOR = GHEIGHT - 125;
 
 

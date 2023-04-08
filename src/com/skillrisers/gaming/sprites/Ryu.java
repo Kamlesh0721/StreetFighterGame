@@ -6,25 +6,23 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 
 public class Ryu extends MasterPlayer implements GameConstraints {
-    private int currAction = DEFAULT;
-    private int moveIndex = 0;
-
     // Array to store Player Moves
     private BufferedImage[] defaultImage = new BufferedImage[7];
-    private BufferedImage[] kickImage = new BufferedImage[7];
     private BufferedImage[] punchImage = new BufferedImage[6];
+    private BufferedImage[] kickImage = new BufferedImage[6];
     private BufferedImage[] jumpImage = new BufferedImage[7];
     private BufferedImage[] hadokenImage = new BufferedImage[5];
 
-
     public Ryu() throws Exception {
         x = 200;
-        w = h = 120;
+        h = PLAYER_HEIGHT;
+        w = PLAYER_WIDTH;
         y = FLOOR - h;
         playerImgSheet = ImageIO.read(Ryu.class.getResource(Ryu_IMG));
+
         defaultImageLoader();
-        kickImageLoader();
         punchImageLoader();
+        kickImageLoader();
         jumpImageLoader();
         hadokenImageLoader();
     }
@@ -32,6 +30,7 @@ public class Ryu extends MasterPlayer implements GameConstraints {
     // Setters
     public void setCurrAction(int currAction) {
         this.currAction = currAction;
+        y = FLOOR - h;
         moveIndex = 0;
     }
 
@@ -46,16 +45,6 @@ public class Ryu extends MasterPlayer implements GameConstraints {
         defaultImage[6] = playerImgSheet.getSubimage(503, 120, 70, 102);
     }
 
-    private void kickImageLoader() {
-        kickImage[0] = playerImgSheet.getSubimage(4, 936, 79, 96);
-        kickImage[1] = playerImgSheet.getSubimage(96, 936, 72, 96);
-        kickImage[2] = playerImgSheet.getSubimage(176, 930, 84, 104);
-        kickImage[3] = playerImgSheet.getSubimage(268, 927, 64, 104);
-        kickImage[4] = playerImgSheet.getSubimage(344, 942, 104, 92);
-        kickImage[5] = playerImgSheet.getSubimage(456, 943, 104, 90);
-        kickImage[6] = playerImgSheet.getSubimage(532, 928, 91, 105);
-    }
-
     private void punchImageLoader() {
         punchImage[0] = playerImgSheet.getSubimage(25, 820, 69, 97);
         punchImage[1] = playerImgSheet.getSubimage(105, 820, 76, 100);
@@ -63,6 +52,15 @@ public class Ryu extends MasterPlayer implements GameConstraints {
         punchImage[3] = playerImgSheet.getSubimage(308, 820, 83, 97);
         punchImage[4] = playerImgSheet.getSubimage(400, 820, 109, 98);
         punchImage[5] = playerImgSheet.getSubimage(515, 819, 81, 98);
+    }
+
+    private void kickImageLoader() {
+        kickImage[0] = playerImgSheet.getSubimage(37, 1044, 66, 100);
+        kickImage[1] = playerImgSheet.getSubimage(120, 1044, 69, 100);
+        kickImage[2] = playerImgSheet.getSubimage(200, 1046, 119, 98);
+        kickImage[3] = playerImgSheet.getSubimage(328, 1044, 68, 98);
+        kickImage[4] = playerImgSheet.getSubimage(404, 1044, 68, 98);
+        kickImage[5] = playerImgSheet.getSubimage(483, 1043, 96, 100);
     }
 
     private void jumpImageLoader() {
@@ -73,7 +71,6 @@ public class Ryu extends MasterPlayer implements GameConstraints {
         jumpImage[4] = playerImgSheet.getSubimage(344, 458, 65, 114);
         jumpImage[5] = playerImgSheet.getSubimage(424, 458, 65, 110);
         jumpImage[6] = playerImgSheet.getSubimage(505, 449, 63, 122);
-
     }
 
     private void hadokenImageLoader() {
@@ -109,18 +106,18 @@ public class Ryu extends MasterPlayer implements GameConstraints {
 
     }
 
-    private BufferedImage kickAction() {
-        BufferedImage img = kickImage[moveIndex];
+    private BufferedImage punchAction() {
+        BufferedImage img = punchImage[moveIndex];
         moveIndex++;
-        if (moveIndex == 7) {
+        if (moveIndex == 6) {
             moveIndex = 0;
             currAction = DEFAULT;
         }
         return img;
     }
 
-    private BufferedImage punchAction() {
-        BufferedImage img = punchImage[moveIndex];
+    private BufferedImage kickAction() {
+        BufferedImage img = kickImage[moveIndex];
         moveIndex++;
         if (moveIndex == 6) {
             moveIndex = 0;

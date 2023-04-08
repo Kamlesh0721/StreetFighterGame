@@ -73,6 +73,22 @@ public class Board extends JPanel implements GameConstraints {
                     ryu.move();
                     repaint();
                 }
+                if (e.getKeyCode() == KeyEvent.VK_F) {
+                    ryu.setCurrAction(GameConstraints.PUNCH);
+                    repaint();
+                }
+                if (e.getKeyCode() == KeyEvent.VK_S) {
+                    ryu.setCurrAction(GameConstraints.KICK);
+                    repaint();
+                }
+                if (e.getKeyCode() == KeyEvent.VK_W) {
+                    ryu.setCurrAction(GameConstraints.JUMP);
+                    repaint();
+                }
+                if (e.getKeyCode() == KeyEvent.VK_X) {
+                    ryu.setCurrAction(GameConstraints.HADOKEN);
+                    repaint();
+                }
 
 
                 // Player 2
@@ -88,21 +104,20 @@ public class Board extends JPanel implements GameConstraints {
                     ken.move();
                     repaint();
                 }
-
-                if(e.getKeyCode()==KeyEvent.VK_F){
-                    ryu.setCurrAction(GameConstraints.PUNCH);
+                if (e.getKeyCode() == KeyEvent.VK_CONTROL) {
+                    ken.setCurrAction(GameConstraints.PUNCH);
                     repaint();
                 }
-                if(e.getKeyCode()==KeyEvent.VK_S){
-                    ryu.setCurrAction(GameConstraints.KICK);
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    ken.setCurrAction(GameConstraints.KICK);
                     repaint();
                 }
-                if(e.getKeyCode()==KeyEvent.VK_W){
-                    ryu.setCurrAction(GameConstraints.JUMP);
+                if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    ken.setCurrAction(GameConstraints.JUMP);
                     repaint();
                 }
-                if(e.getKeyCode()==KeyEvent.VK_X){
-                    ryu.setCurrAction(GameConstraints.HADOKEN);
+                if (e.getKeyCode() == KeyEvent.VK_NUMPAD0) {
+                    ken.setCurrAction(GameConstraints.HADOKEN);
                     repaint();
                 }
 
