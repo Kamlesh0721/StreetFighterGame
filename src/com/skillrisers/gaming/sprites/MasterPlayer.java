@@ -10,7 +10,9 @@ public abstract class MasterPlayer implements GameConstraints {
     protected int y;
     protected int w;
     protected int h;
+    protected int force;
     public int speed;
+    boolean isJump = false;
     protected int currAction = DEFAULT;
     protected int moveIndex = 0;
     protected BufferedImage playerImgSheet;
@@ -24,6 +26,15 @@ public abstract class MasterPlayer implements GameConstraints {
     public void drawPlayer(Graphics pen) {
         pen.drawImage(actionManager(), x, y, w, h, null);
 
+    }
+
+    public void fall() {
+        if (y > FLOOR - h) {
+            isJump = false;
+            return;
+        }
+        y += force;
+        force += GRAVITY;
     }
 
 }

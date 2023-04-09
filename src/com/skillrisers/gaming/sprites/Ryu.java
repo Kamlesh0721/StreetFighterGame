@@ -30,7 +30,6 @@ public class Ryu extends MasterPlayer implements GameConstraints {
     // Setters
     public void setCurrAction(int currAction) {
         this.currAction = currAction;
-        y = FLOOR - h;
         moveIndex = 0;
     }
 
@@ -127,15 +126,12 @@ public class Ryu extends MasterPlayer implements GameConstraints {
     }
 
     private BufferedImage jumpAction() {
-        if (moveIndex == 3) {
-            y -= 30;
-        } else if (moveIndex == 4) {
-            y -= 15;
-        } else if (moveIndex == 5) {
-            y += 15;
-        } else if (moveIndex == 6) {
-            y += 30;
+        if (!isJump) {
+            isJump = true;
+            force = FORCE;
+            y = y + force;
         }
+
         BufferedImage img = jumpImage[moveIndex];
         moveIndex++;
 
@@ -145,6 +141,7 @@ public class Ryu extends MasterPlayer implements GameConstraints {
         }
         return img;
     }
+
 
     private BufferedImage hadokenAction() {
         BufferedImage img = hadokenImage[moveIndex];

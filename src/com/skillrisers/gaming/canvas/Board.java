@@ -23,9 +23,11 @@ public class Board extends JPanel implements GameConstraints {
     private Timer timer;
 
     private void gameLoop() {
-        timer = new Timer(150, new ActionListener() {
+        timer = new Timer(GAME_FRAME, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                ryu.fall();
+                ken.fall();
                 repaint();
             }
         });
