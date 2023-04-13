@@ -12,12 +12,12 @@ public interface GameConstraints {
     int PLAYER_HEIGHT = 120;
     int PLAYER_WIDTH = 100;
     int FLOOR = GHEIGHT - 125;
-    int GRAVITY =3;
-    int FORCE = -15;
+    int GRAVITY = 4;
+    int FORCE = -20;
 
     String Ryu_IMG = "Ryu.gif";
     String Ken_IMG = "Ken.png";
-    int SPEED = 10;
+    int SPEED = 15;
 
 
     // Player Movement Keys
@@ -33,4 +33,6 @@ public interface GameConstraints {
     int KICK = 2;
     int JUMP = 3;
     int HADOKEN = 4;
+    int DAMAGE = 5;
+    int MAX_HEALTH = 300;
 }

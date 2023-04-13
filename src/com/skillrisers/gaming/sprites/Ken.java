@@ -13,18 +13,24 @@ public class Ken extends MasterPlayer implements GameConstraints {
     private BufferedImage[] jumpImage = new BufferedImage[7];
     private BufferedImage[] hadokenImage = new BufferedImage[5];
 
+    private BufferedImage[] damageEffectImages = new BufferedImage[5];
+    private BufferedImage playerImageSheet2Temp;
+
     public Ken() throws Exception {
         x = GWIDTH - 300;
         h = PLAYER_HEIGHT;
         w = PLAYER_WIDTH;
         y = FLOOR - h;
-        playerImgSheet = ImageIO.read(Ryu.class.getResource(Ken_IMG));
+        playerImgSheet = ImageIO.read(Ken.class.getResource(Ken_IMG));
+        playerImageSheet2Temp = ImageIO.read(Ken.class.getResource("kenimage.png"));
+
 
         defaultImageLoader();
         kickImageLoader();
         punchImageLoader();
         jumpImageLoader();
         hadokenImageLoader();
+        damageEffectLoader();
     }
 
     // Setters
@@ -78,6 +84,14 @@ public class Ken extends MasterPlayer implements GameConstraints {
         hadokenImage[4] = playerImgSheet.getSubimage(635, 20, 197, 217);
     }
 
+    private void damageEffectLoader() {
+        damageEffectImages[0] = playerImageSheet2Temp.getSubimage(1365, 3276, 65, 95);
+        damageEffectImages[1] = playerImageSheet2Temp.getSubimage(1437, 3271, 88, 99);
+        damageEffectImages[2] = playerImageSheet2Temp.getSubimage(1537, 3278, 75, 91);
+        damageEffectImages[3] = playerImageSheet2Temp.getSubimage(1627, 3277, 70, 92);
+        damageEffectImages[4] = playerImageSheet2Temp.getSubimage(1712, 3274, 63, 98);
+    }
+
     // Player Moves/Action Selector
     @Override
     protected BufferedImage actionManager() {
@@ -89,6 +103,8 @@ public class Ken extends MasterPlayer implements GameConstraints {
             return jumpAction();
         } else if (currAction == HADOKEN) {
             return hadokenAction();
+        } else if (currAction == DAMAGE) {
+            return damageEffectAction();
         }
         return defaultAction();
     }
@@ -96,7 +112,7 @@ public class Ken extends MasterPlayer implements GameConstraints {
     private BufferedImage defaultAction() {
         BufferedImage img = defaultImage[moveIndex];
         moveIndex++;
-        if (moveIndex == 4) {
+        if (moveIndex == defaultImage.length) {
             moveIndex = 0;
         }
 
@@ -105,21 +121,26 @@ public class Ken extends MasterPlayer implements GameConstraints {
     }
 
     private BufferedImage punchAction() {
+
+        isAttacking = true;
         BufferedImage img = punchImage[moveIndex];
         moveIndex++;
-        if (moveIndex == 5) {
+        if (moveIndex == punchImage.length) {
             moveIndex = 0;
             currAction = DEFAULT;
+            isAttacking = false;
         }
         return img;
     }
 
     private BufferedImage kickAction() {
+        isAttacking = true;
         BufferedImage img = kickImage[moveIndex];
         moveIndex++;
-        if (moveIndex == 5) {
+        if (moveIndex == kickImage.length) {
             moveIndex = 0;
             currAction = DEFAULT;
+            isAttacking = false;
         }
         return img;
     }
@@ -134,7 +155,7 @@ public class Ken extends MasterPlayer implements GameConstraints {
         BufferedImage img = jumpImage[moveIndex];
         moveIndex++;
 
-        if (moveIndex == 7) {
+        if (moveIndex == jumpImage.length) {
             moveIndex = 0;
             currAction = DEFAULT;
         }
@@ -144,10 +165,22 @@ public class Ken extends MasterPlayer implements GameConstraints {
     private BufferedImage hadokenAction() {
         BufferedImage img = hadokenImage[moveIndex];
         moveIndex++;
-        if (moveIndex == 5) {
+        if (moveIndex == hadokenImage.length) {
             moveIndex = 0;
             currAction = DEFAULT;
         }
         return img;
+    }
+
+    private BufferedImage damageEffectAction() {
+        BufferedImage img = damageEffectImages[moveIndex];
+        moveIndex++;
+        if (moveIndex >= damageEffectImages.length) {
+            moveIndex = 0;
+            currAction = DEFAULT;
+            isAttacking = false;
+        }
+        return img;
+
     }
 }
